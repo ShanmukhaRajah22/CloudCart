@@ -54,8 +54,8 @@ The API never stores image bytes in MongoDB and does not proxy image uploads thr
 - Amazon CloudFront
 - Zod
 - Helmet
-- `express-rate-limit`
-- `dotenv`
+- express-rate-limit
+- dotenv
 
 ## Project structure
 
@@ -103,7 +103,6 @@ S3_BUCKET_NAME=your-private-bucket-name
 
 CLOUDFRONT_URL=https://your-distribution.cloudfront.net
 MAX_IMAGE_SIZE_MB=5
-FRONTEND_URL=http://localhost:3000
 ```
 
 Never commit real AWS credentials or other secrets. For deployed environments, prefer the platform's IAM role, workload identity, or secret manager over long-lived access keys.
