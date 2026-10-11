@@ -30,25 +30,8 @@ The API is designed to be used by a frontend, Postman, or any HTTP client.
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    Client[Client / Postman]
-    API[Node.js + Express API]
-    DB[(MongoDB)]
-    S3[(Private Amazon S3 bucket)]
-    CF[Amazon CloudFront]
+<img width="1774" height="887" alt="image" src="https://github.com/user-attachments/assets/340e00cd-9bff-45ba-b5a9-0bfaf94ff412" />
 
-    Client -->|1. Request presigned URL| API
-    API -->|2. Return temporary upload URL| Client
-    Client -->|3. Direct PUT upload| S3
-    Client -->|4. Submit product + imageKey| API
-    API -->|5. Store metadata and imageKey| DB
-    Client -->|6. Request products| API
-    API -->|Query products| DB
-    API -->|Return imageUrl| Client
-    Client -->|7. Load image| CF
-    CF -->|Cache miss: authorized origin request| S3
-```
 
 ### Upload and delivery flow
 
