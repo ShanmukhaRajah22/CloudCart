@@ -1,7 +1,6 @@
 import 'dotenv/config';
 
 import express from 'express';
-import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 
@@ -55,12 +54,6 @@ function addImageUrl(product) {
 app.disable('x-powered-by');
 
 app.use(helmet());
-
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-  allowedHeaders: ['Content-Type']
-}));
 
 app.use(express.json({
   limit: '20kb'
